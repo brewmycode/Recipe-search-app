@@ -1,0 +1,14 @@
+{
+  "name": "recipe-app",
+  "version": "0.1.0",
+  "main": "index.js",
+  "author": "sam",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "serve": "parcel ./public/index.html"
+  },
+  "dependencies": {
+    "@babel/core": "^7.2.2"
+  }
+}
