@@ -1,4 +1,5 @@
 import Search from "./models/Search";
+import * as searchView from "./views/searchView";
 import { elements } from "./base";
 
 /*
@@ -9,16 +10,21 @@ import { elements } from "./base";
 */
 const state = {};
 
-const controlSearch = async e => {
-  e.preventDefault();
-  const query = elements.searchField.value;
+const controlSearch = async () => {
+  const query = searchView.getInput();
   if (query) {
     state.search = new Search(query);
+    searchView.clearInput();
+    searchView.clearResults();
 
     await state.search.getResults();
 
+    searchView.renderResults(state.search.result);
     console.log(state.search.result);
   }
 };
 
-elements.search.addEventListener("submit", controlSearch);
+elements.search.addEventListener("submit", e => {
+  e.preventDefault();
+  controlSearch();
+});

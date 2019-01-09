@@ -8,7 +8,7 @@ class Search {
   async getResults() {
     const url = `https://api.edamam.com/search?q=${this.query}&app_id=${
       config.id
-    }&app_key=${config.key}&from=0&to=3`;
+    }&app_key=${config.key}&from=0&to=30`;
     try {
       const res = await axios(url);
       this.result = res.data.hits;
